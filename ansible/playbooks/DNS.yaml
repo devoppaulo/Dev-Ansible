@@ -1,0 +1,317 @@
+---
+- name: "DNS GUI Installation "
+  hosts: dns
+  become: yes
+  tasks:
+    - name: Install epel-release repo
+      yum:
+        name: epel-release 
+        state: present  
+
+    - name: Install epel-release repo
+      yum:
+        name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm 
+        state: present
+
+    - name: Install yum utils repo
+      yum:
+        name: yum-utils 
+        state: present
+    
+    - name: Install yum utils repo
+      yum:
+        name: yum-utils 
+        state: present
+
+    - name: Install wget repo
+      yum:
+        name: wget 
+        state: present
+
+    - name: Install a list of packages 
+      yum:
+        name:
+          - mariadb
+          - mariadb-server
+          - python
+          - MySQL-python
+        state: present
+
+    
+    - name: “Installing pip”
+      yum:
+        name: python-pip
+        state: present
+  
+        
+
+    - name: Add remi-php71
+      yum_repository:
+        name: remi-php71
+        description: Remi's PHP 7.1 RPM repository for Enterprise Linux $releasever - $basearch
+        mirrorlist: http://rpms.remirepo.net/enterprise/$releasever/php71/mirror
+        enabled: yes
+        gpgcheck: 1
+        gpgkey: http://rpms.remirepo.net/RPM-GPG-KEY-remi
+
+    - name: Start and enable mariadb
+      service:
+        state: started
+        name: mariadb
+        enabled: yes   
+
+###########################                 
+
+    - name: Creating a file with content
+      become: yes
+      become_user: root    
+      lineinfile:
+        path: "/var/lib/mysqld/mysqld.sock"
+        line: "[client]
+        user=root
+        password=password"
+        state: present
+
+    - name: Setting up root credentials
+      become: yes
+      become_user: root      
+      mysql_user:
+        name: root
+        password: "password"
+#        login_user: root
+#        login_password: "password"
+        host: localhost
+#        login_unix_socket: /var/run/mysqld/mysqld.sock
+        priv: '*.*:ALL,GRANT'
+        check_implicit_admin: true 
+        state: present
+
+    - name: Create a new database with name 'powerdns'
+      mysql_db:
+        name: powerdns
+        state: present
+
+    - name: Creating a file with content
+      copy:
+        dest: "/home/dump.sql"
+        content: "use powerdns;
+ 
+ CREATE TABLE domains (
+   id                    INT AUTO_INCREMENT,
+   name                  VARCHAR(255) NOT NULL,
+   master                VARCHAR(128) DEFAULT NULL,
+   last_check            INT DEFAULT NULL,
+   type                  VARCHAR(6) NOT NULL,
+   notified_serial       INT DEFAULT NULL,
+   account               VARCHAR(40) DEFAULT NULL,
+   PRIMARY KEY (id)
+ ) Engine=InnoDB;
+ 
+ CREATE UNIQUE INDEX name_index ON domains(name);
+ 
+ 
+ CREATE TABLE records (
+   id                    BIGINT AUTO_INCREMENT,
+   domain_id             INT DEFAULT NULL,
+   name                  VARCHAR(255) DEFAULT NULL,
+   type                  VARCHAR(10) DEFAULT NULL,
+   content               VARCHAR(64000) DEFAULT NULL,
+   ttl                   INT DEFAULT NULL,
+   prio                  INT DEFAULT NULL,
+   change_date           INT DEFAULT NULL,
+   disabled              TINYINT(1) DEFAULT 0,
+   ordername             VARCHAR(255) BINARY DEFAULT NULL,
+   auth                  TINYINT(1) DEFAULT 1,
+   PRIMARY KEY (id)
+ ) Engine=InnoDB;
+ 
+ CREATE INDEX nametype_index ON records(name,type);
+ CREATE INDEX domain_id ON records(domain_id);
+ CREATE INDEX recordorder ON records (domain_id, ordername);
+ 
+ 
+ CREATE TABLE supermasters (
+   ip                    VARCHAR(64) NOT NULL,
+   nameserver            VARCHAR(255) NOT NULL,
+   account               VARCHAR(40) NOT NULL,
+   PRIMARY KEY (ip, nameserver)
+ ) Engine=InnoDB;
+ 
+ 
+ CREATE TABLE comments (
+   id                    INT AUTO_INCREMENT,
+   domain_id             INT NOT NULL,
+   name                  VARCHAR(255) NOT NULL,
+   type                  VARCHAR(10) NOT NULL,
+   modified_at           INT NOT NULL,
+   account               VARCHAR(40) NOT NULL,
+   comment               VARCHAR(64000) NOT NULL,
+   PRIMARY KEY (id)
+ ) Engine=InnoDB;
+ 
+ CREATE INDEX comments_domain_id_idx ON comments (domain_id);
+ CREATE INDEX comments_name_type_idx ON comments (name, type);
+ CREATE INDEX comments_order_idx ON comments (domain_id, modified_at);
+ 
+ 
+ CREATE TABLE domainmetadata (
+   id                    INT AUTO_INCREMENT,
+   domain_id             INT NOT NULL,
+   kind                  VARCHAR(32),
+   content               TEXT,
+   PRIMARY KEY (id)
+ ) Engine=InnoDB;
+ 
+ CREATE INDEX domainmetadata_idx ON domainmetadata (domain_id, kind);
+ 
+ 
+ CREATE TABLE cryptokeys (
+   id                    INT AUTO_INCREMENT,
+   domain_id             INT NOT NULL,
+   flags                 INT NOT NULL,
+   active                BOOL,
+   content               TEXT,
+   PRIMARY KEY(id)
+ ) Engine=InnoDB;
+ 
+ CREATE INDEX domainidindex ON cryptokeys(domain_id);
+ 
+ 
+ CREATE TABLE tsigkeys (
+   id                    INT AUTO_INCREMENT,
+   name                  VARCHAR(255),
+   algorithm             VARCHAR(50),
+   secret                VARCHAR(255),
+   PRIMARY KEY (id)
+ ) Engine=InnoDB;
+ 
+ CREATE UNIQUE INDEX namealgoindex ON tsigkeys(name, algorithm);
+ 
+ quit;"
+
+    - name: Import dump.sql similar to mysql -u root -p password < hostname.sql
+      become: yes
+      become_user: root
+      mysql_db:
+        state: import
+        name: powerdns
+        target: /home/dump.sql
+
+#    - name: Mysql Secure installation
+#      community.mysql.mysql_user:
+#      name: root
+#      password: "password"
+#      login_password: "password"
+        
+#    - name: Copy phpmyadmin Template
+#      template:
+#        dest: "/etc/httpd/conf.d/phpMyAdmin.conf"
+#        src: phpMyAdmin.conf.j2
+    
+#    - name: Add services to the firewall
+#      firewalld:
+#        state: enabled
+#        service: "{{ item }}"
+#        permanent: yes
+#        immediate: yes
+#      loop: "{{ firewall_services }}"  
+    
+#    - name: Restart httpd
+#      service:
+#        name: httpd 
+#        state: restarted
+
+ 
+
+#    - name: Copy identity file
+#      template:
+#        dest: /root/.my.cnf
+#        src: my.cnf.j2
+      
+#    - name: Copy database query file
+#      copy:
+#        src: database.sql
+#        dest: /root/database.sql
+
+ 
+
+#    - name: Adding entries into a database
+#      shell: 
+#        chdir: /root
+#        cmd: mysql < database.sql
+
+##############################
+
+    - name: Install a list of packages 
+      yum:
+        name:
+          - pdns
+          - pdns-backend-mysql
+          - bind-utils
+        state: present
+
+    - name: Add Add a Master Map
+      become: yes
+      become_user: root
+      lineinfile:
+        path: "/etc/pdns/pdns.conf"
+        line: "launch=gmysql
+        gmysql-host=localhost
+        gmysql-user=pdns
+        gmysql-password=pdnspassword
+        gmysql-dbname=powerdns"
+        insertafter: launch=bind
+        state: present    
+
+
+    - name: Start and enable pdns
+      service:
+        state: started
+        name: pdns
+        enabled: yes 
+
+    - name: Add firewall rule
+      firewalld:
+        state: enabled
+        service: dns
+        permanent: yes
+        immediate: yes   
+
+    - name: Install a list of packages 
+      yum:
+        name:
+          - httpd
+          - php
+          - php-devel
+          - php-gd
+          - php-imap
+          - php-ldap
+          - php-mysql
+          - php-odbc
+          - php-pear
+          - php-xml
+          - php-xmlrpc
+          - php-mbstring
+          - php-mcrypt
+          - php-mhash
+          - gettext
+        state: present
+
+    - name: Install a list of packages 
+      yum:
+        name:
+          - php-pear-DB
+          - php-pear-MDB2-Driver-mysqli
+        state: present      
+
+    - name: Restart httpd
+      service:
+        name: httpd 
+        state: restarted
+
+#    - name: Add firewall rule
+#      firewalld:
+#        state: enabled
+#        service: https
+#        permanent: yes
+#        immediate: yes 
