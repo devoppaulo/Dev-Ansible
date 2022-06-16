@@ -1,0 +1,53 @@
+---
+- hosts: 192.168.33.44
+  become: true
+  tasks:
+    - selinux:
+        state: disabled
+
+    - name: Enable EPEL Repository on CentOS 7
+      yum:
+        name: epel-release
+        state: latest
+
+    - name: Disable firewalld
+      service:
+        name: firewalld
+        state: stopped
+        enabled: False
+
+    - name: install java
+      yum:
+        name: java
+
+    - name: install git
+      yum:
+        name: git
+
+    - name: Ensure Jenkins repository is added
+      yum_repository:
+        name: jenkins-ci
+        description: jenkins-ci package repository
+        baseurl: http://pkg.jenkins.io/redhat
+        gpgkey: https://pkg.jenkins.io/redhat/jenkins.io.key
+        gpgcheck: yes
+
+    - name: Ensure gpp key is imported
+      rpm_key:
+        state: present
+        key: https://pkg.jenkins.io/redhat/jenkins.io.key
+
+    - name: install jenkins
+      yum:
+        name: jenkins
+        state: present
+
+    - name: start jenkins
+      systemd:
+        name: jenkins
+        state: started
+
+    - name: enable jenkins
+      systemd:
+        name: jenkins
+        enabled: true
