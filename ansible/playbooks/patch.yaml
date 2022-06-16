@@ -1,0 +1,18 @@
+###Install initial packages on all boxes and chronyd
+
+---
+- name: install initial packages on all boxes
+  hosts: all
+  remote_user: ansible
+  become: yes
+  
+  tasks:
+  - name: install all initial packages
+    yum:
+      name: ['man', 'man-pages', 'mlocate', 'vim', 'bind-utils']
+      state: latest
+    
+  - name: install chrony packages 
+    yum: 
+      name: chrony 
+      state: latest
