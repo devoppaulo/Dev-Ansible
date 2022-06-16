@@ -1,0 +1,54 @@
+---
+- name: "NFS client server installation"
+  hosts: nfsworker
+  become: yes
+  tasks:
+    - name: Install nfs-utils repo
+      yum:
+        name: nfs-utils
+        state: present
+
+    - name: Start and enable rpcbind
+      service:
+        state: started
+        name: rpcbind
+        enabled: yes
+
+    - name: Start and enable nfs-server
+      service:
+        state: started
+        name: nfs-server
+        enabled: yes
+
+    - name: Start and enable nfs-lock
+      service:
+        state: started
+        name: nfs-lock 
+        enabled: yes
+
+    - name: Start and enable nfs-idmap
+      service:
+        state: started
+        name: nfs-idmap
+        enabled: yes  
+
+    - name: create your own directory for nfs bridge
+      become: yes
+      become_user: root    
+      file:
+        path: "/clientshare"
+        state: directory        
+        owner: nfsnobody
+        group: nfsnobody
+        mode: 0777    
+
+#    - name: Mount to the NFS server
+#      ansible.builtin.command: mount -t nfs 10.231.187.129:/share /clientshare 
+#      become: true
+
+    - name: Mount an NFS volume
+      mount:
+        src: 10.231.187.129:/share
+        path: /clientshare
+        state: mounted
+        fstype: nfs
