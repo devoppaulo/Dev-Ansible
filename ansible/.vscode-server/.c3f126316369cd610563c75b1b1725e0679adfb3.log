@@ -1,0 +1,145 @@
+
+
+*
+* Visual Studio Code Server
+*
+* Reminder: You may only use this software with Visual Studio family products,
+* as described in the license https://aka.ms/vscode-remote/license
+*
+
+Extension host agent listening on 38789
+
+[23:32:56] Extension host agent started.
+[23:32:56] [127.0.0.1][07d8c9b6][ExtensionHostConnection] New connection established.
+[23:32:57] [127.0.0.1][758478cc][ManagementConnection] New connection established.
+[23:32:57] [127.0.0.1][07d8c9b6][ExtensionHostConnection] <1743> Launched Extension Host Process.
+[23:33:02] [127.0.0.1][758478cc][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[23:33:03] [127.0.0.1][07d8c9b6][ExtensionHostConnection] <1743> Extension Host Process exited with code: 0, signal: null.
+Last EH closed, waiting before shutting down
+[23:33:03] Last EH closed, waiting before shutting down
+[23:33:03] [127.0.0.1][8fd22af4][ManagementConnection] New connection established.
+[23:33:03] [127.0.0.1][5230c372][ExtensionHostConnection] New connection established.
+[23:33:03] [127.0.0.1][5230c372][ExtensionHostConnection] <1782> Launched Extension Host Process.
+New EH opened, aborting shutdown
+[23:38:03] New EH opened, aborting shutdown
+[23:49:21] [127.0.0.1][4f7aca80][ManagementConnection] New connection established.
+[23:49:21] [127.0.0.1][ec354ba8][ExtensionHostConnection] New connection established.
+[23:49:21] [127.0.0.1][ec354ba8][ExtensionHostConnection] <4765> Launched Extension Host Process.
+[23:49:22] Resolved variables received without matching request 56
+[23:49:22] Resolved variables received without matching request 57
+[23:49:22] Resolved variables received without matching request 58
+[23:49:22] Resolved variables received without matching request 59
+[23:49:22] Resolved variables received without matching request 60
+[23:49:23] Resolved variables received without matching request 61
+[23:49:23] Resolved variables received without matching request 62
+[23:49:23] Resolved variables received without matching request 63
+[23:49:23] Resolved variables received without matching request 64
+[23:49:23] Resolved variables received without matching request 65
+[23:49:34] Resolved variables received without matching request 66
+[23:49:34] Resolved variables received without matching request 67
+[23:49:34] Resolved variables received without matching request 68
+[23:49:34] Resolved variables received without matching request 69
+[23:49:34] Resolved variables received without matching request 70
+[23:49:36] Resolved variables received without matching request 71
+[23:49:36] Resolved variables received without matching request 72
+[23:49:36] Resolved variables received without matching request 73
+[23:49:36] Resolved variables received without matching request 74
+[23:49:36] Resolved variables received without matching request 75
+[23:49:54] Resolved variables received without matching request 76
+[23:49:54] Resolved variables received without matching request 77
+[23:49:54] Resolved variables received without matching request 78
+[23:49:54] Resolved variables received without matching request 79
+[23:49:54] Resolved variables received without matching request 80
+[23:50:25] Resolved variables received without matching request 81
+[23:50:25] Resolved variables received without matching request 82
+[23:50:25] Resolved variables received without matching request 83
+[23:50:25] Resolved variables received without matching request 84
+[23:50:25] Resolved variables received without matching request 85
+[00:16:24] [127.0.0.1][8fd22af4][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+Error: Unexpected SIGPIPE
+    at process.<anonymous> (/home/ansible/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/out/bootstrap.js:1:370)
+    at process.emit (events.js:315:20)
+[00:16:32] [127.0.0.1][4f7aca80][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+Error: Unexpected SIGPIPE
+    at process.<anonymous> (/home/ansible/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/out/bootstrap.js:1:370)
+    at process.emit (events.js:315:20)
+[00:17:59] [127.0.0.1][8fd22af4][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[00:17:59] [127.0.0.1][4f7aca80][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[00:17:59] [127.0.0.1][4f7aca80][ManagementConnection] The client has reconnected.
+[00:17:59] [127.0.0.1][ec354ba8][ExtensionHostConnection] The client has reconnected.
+[00:17:59] [127.0.0.1][6f5d1cec][ManagementConnection] New connection established.
+[00:17:59] [127.0.0.1][d01c69df][ExtensionHostConnection] New connection established.
+[00:17:59] [127.0.0.1][d01c69df][ExtensionHostConnection] <15557> Launched Extension Host Process.
+[00:18:00] Resolved variables received without matching request 126
+[00:18:00] Resolved variables received without matching request 127
+[00:18:00] Resolved variables received without matching request 128
+[00:18:00] Resolved variables received without matching request 129
+[00:18:01] Resolved variables received without matching request 130
+[00:18:01] Resolved variables received without matching request 131
+[00:18:01] Resolved variables received without matching request 132
+[00:18:01] Resolved variables received without matching request 133
+[00:18:01] Resolved variables received without matching request 134
+[00:18:01] Resolved variables received without matching request 135
+[00:18:01] Resolved variables received without matching request 136
+[00:18:01] Resolved variables received without matching request 137
+[00:18:01] Resolved variables received without matching request 138
+[00:18:02] Resolved variables received without matching request 139
+[00:18:02] Resolved variables received without matching request 140
+[00:18:03] Resolved variables received without matching request 141
+[00:18:03] Resolved variables received without matching request 142
+[00:18:03] Resolved variables received without matching request 143
+[00:18:03] Resolved variables received without matching request 144
+[00:18:03] Resolved variables received without matching request 145
+[IPC Library: Pty Host]  INFO Persistent process "12": Replaying 18056 chars and 1 size events
+[00:18:04] [File Watcher (chokidar)] Inotify limit reached (ENOSPC)
+[00:18:05] Resolved variables received without matching request 146
+[00:18:05] Resolved variables received without matching request 147
+[00:18:05] Resolved variables received without matching request 148
+[00:18:05] Resolved variables received without matching request 149
+[00:18:05] Resolved variables received without matching request 150
+[00:18:18] Resolved variables received without matching request 151
+[00:18:18] Resolved variables received without matching request 152
+[00:18:18] Resolved variables received without matching request 153
+[00:18:18] Resolved variables received without matching request 154
+[00:18:18] Resolved variables received without matching request 155
+[00:18:19] Resolved variables received without matching request 156
+[00:18:19] Resolved variables received without matching request 157
+[00:18:19] Resolved variables received without matching request 158
+[00:18:20] Resolved variables received without matching request 159
+[00:18:20] Resolved variables received without matching request 160
+[00:18:33] Resolved variables received without matching request 161
+[00:18:33] Resolved variables received without matching request 162
+[00:18:33] Resolved variables received without matching request 163
+[00:18:33] Resolved variables received without matching request 164
+[00:18:33] Resolved variables received without matching request 165
+[00:19:04] Resolved variables received without matching request 166
+[00:19:04] Resolved variables received without matching request 167
+[00:19:04] Resolved variables received without matching request 168
+[00:19:04] Resolved variables received without matching request 169
+[00:19:04] Resolved variables received without matching request 170
+[00:22:59] [127.0.0.1][8fd22af4][ManagementConnection] The reconnection short grace time of 5m has expired, so the connection will be disposed.
+[00:23:00] [127.0.0.1][5230c372][ExtensionHostConnection] <1782> Extension Host Process exited with code: 0, signal: null.
+[00:27:57] [127.0.0.1][4f7aca80][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+[00:27:57] [127.0.0.1][6f5d1cec][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+Error: Unexpected SIGPIPE
+    at process.<anonymous> (/home/ansible/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/out/bootstrap.js:1:370)
+    at process.emit (events.js:315:20)
+Error: Unexpected SIGPIPE
+    at process.<anonymous> (/home/ansible/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/out/bootstrap.js:1:370)
+    at process.emit (events.js:315:20)
+[00:28:29] [127.0.0.1][4f7aca80][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[00:28:29] [127.0.0.1][6f5d1cec][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[00:28:29] [127.0.0.1][6f5d1cec][ManagementConnection] The client has reconnected.
+[00:28:29] [127.0.0.1][d01c69df][ExtensionHostConnection] The client has reconnected.
+[00:33:29] [127.0.0.1][4f7aca80][ManagementConnection] The reconnection short grace time of 5m has expired, so the connection will be disposed.
+[00:33:30] [127.0.0.1][ec354ba8][ExtensionHostConnection] <4765> Extension Host Process exited with code: 0, signal: null.
+[01:03:03] [127.0.0.1][6f5d1cec][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+Error: Unexpected SIGPIPE
+    at process.<anonymous> (/home/ansible/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/out/bootstrap.js:1:370)
+    at process.emit (events.js:315:20)
+[04:02:56] [127.0.0.1][d01c69df][ExtensionHostConnection] <15557> Extension Host Process exited with code: 0, signal: null.
+Last EH closed, waiting before shutting down
+[04:02:56] Last EH closed, waiting before shutting down
+[04:03:03] [127.0.0.1][6f5d1cec][ManagementConnection] The reconnection grace time of 3h has expired, so the connection will be disposed.
+Last EH closed, shutting down
+[04:07:56] Last EH closed, shutting down

@@ -1,0 +1,20 @@
+---
+  - name: Creating user using ansible
+    hosts: all
+    become: yes
+    vars_files:
+      - "/home/ansible/user_vars.yml"
+    tasks: 
+      - name: Adding user to a system 
+        user: 
+          name: "{{ item }}"
+          append: yes
+          groups: wheel
+          generate_ssh_key: yes
+          home: "/home/{{ item }}"
+          password: "{{ user_password }}"
+          shell: "{{ user_shell }}"
+        loop: "{{ create_users }}"  
+
+    
+  

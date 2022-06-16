@@ -1,0 +1,28 @@
+---
+  - name: Uninstall chrony server
+    hosts: ntpserver
+    become: yes
+    tasks:
+      - name: Remove NTP service from firewalld
+        firewalld:
+          service: ntp
+          state: disabled
+          permanent: yes
+          immediate: yes
+      
+      - name: Comment out IP ranges
+        lineinfile: 
+          path: "/etc/chrony.conf"
+          regexp: '^allow'
+          line: '#allow 192.168.1.0/24'
+
+      - name: Comment out local stratum
+        lineinfile: 
+          path: "/etc/chrony.conf"
+          regexp: '^local'
+          line: '#local stratum 10'
+
+      - name: Restart Chronyd service
+        service:
+          name: chronyd
+          state: restarted  

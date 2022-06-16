@@ -1,0 +1,63 @@
+---
+# vars file for roles/paulo.nagios-server
+package_list: 
+  - gcc
+  - glibc
+  - glibc-common
+  - gd
+  - gd-devel
+  - make
+  - net-snmp
+  - openssl-devel
+  - httpd
+  - php
+  - unzip
+  - wget
+  - postfix
+  - perl
+  - python-passlib
+  - nagios-plugins-nrpe
+
+nagios_version: 4.4.6  
+
+  
+commands_list:
+  - "./configure"
+  - "make all"
+  - "make install-groups-users"
+  - "usermod -aG nagios apache"
+  - "make install"
+  - "make install-daemoninit"
+  - "make install-commandmode"
+  - "make install-config"
+  - "make install-webconf"
+
+plugins_version: 2.3.3
+
+plugins_commands_list:
+  - "./configure"
+  - "make"
+  - "make install"
+
+admin_email: root@localhost 
+
+admin_password: password
+
+target_server_list:
+  - server_name: WEB001
+    server_ip: 192.168.1.51
+
+  - server_name: WEB002
+    server_ip: 192.168.1.52 
+    
+  - server_name: WEB003
+    server_ip: 192.168.1.53
+
+    
+
+
+
+    
+
+        
+

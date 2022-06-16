@@ -1,0 +1,124 @@
+[2022-04-11 23:32:56.772] [remoteagent] [info] 
+
+*
+* Visual Studio Code Server
+*
+* Reminder: You may only use this software with Visual Studio family products,
+* as described in the license https://aka.ms/vscode-remote/license
+*
+
+
+[2022-04-11 23:32:56.772] [remoteagent] [info] Extension host agent started.
+[2022-04-11 23:32:56.983] [remoteagent] [info] [127.0.0.1][07d8c9b6][ExtensionHostConnection] New connection established.
+[2022-04-11 23:32:57.030] [remoteagent] [info] [127.0.0.1][758478cc][ManagementConnection] New connection established.
+[2022-04-11 23:32:57.065] [remoteagent] [info] [127.0.0.1][07d8c9b6][ExtensionHostConnection] <1743> Launched Extension Host Process.
+[2022-04-11 23:33:02.096] [remoteagent] [info] [127.0.0.1][758478cc][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[2022-04-11 23:33:03.125] [remoteagent] [info] [127.0.0.1][07d8c9b6][ExtensionHostConnection] <1743> Extension Host Process exited with code: 0, signal: null.
+[2022-04-11 23:33:03.125] [remoteagent] [info] Last EH closed, waiting before shutting down
+[2022-04-11 23:33:03.658] [remoteagent] [info] [127.0.0.1][8fd22af4][ManagementConnection] New connection established.
+[2022-04-11 23:33:03.672] [remoteagent] [info] [127.0.0.1][5230c372][ExtensionHostConnection] New connection established.
+[2022-04-11 23:33:03.682] [remoteagent] [info] [127.0.0.1][5230c372][ExtensionHostConnection] <1782> Launched Extension Host Process.
+[2022-04-11 23:38:03.126] [remoteagent] [info] New EH opened, aborting shutdown
+[2022-04-11 23:49:21.837] [remoteagent] [info] [127.0.0.1][4f7aca80][ManagementConnection] New connection established.
+[2022-04-11 23:49:21.845] [remoteagent] [info] [127.0.0.1][ec354ba8][ExtensionHostConnection] New connection established.
+[2022-04-11 23:49:21.854] [remoteagent] [info] [127.0.0.1][ec354ba8][ExtensionHostConnection] <4765> Launched Extension Host Process.
+[2022-04-11 23:49:22.253] [remoteagent] [warning] Resolved variables received without matching request 56
+[2022-04-11 23:49:22.317] [remoteagent] [warning] Resolved variables received without matching request 57
+[2022-04-11 23:49:22.727] [remoteagent] [warning] Resolved variables received without matching request 58
+[2022-04-11 23:49:22.738] [remoteagent] [warning] Resolved variables received without matching request 59
+[2022-04-11 23:49:22.804] [remoteagent] [warning] Resolved variables received without matching request 60
+[2022-04-11 23:49:23.292] [remoteagent] [warning] Resolved variables received without matching request 61
+[2022-04-11 23:49:23.346] [remoteagent] [warning] Resolved variables received without matching request 62
+[2022-04-11 23:49:23.403] [remoteagent] [warning] Resolved variables received without matching request 63
+[2022-04-11 23:49:23.457] [remoteagent] [warning] Resolved variables received without matching request 64
+[2022-04-11 23:49:23.514] [remoteagent] [warning] Resolved variables received without matching request 65
+[2022-04-11 23:49:34.862] [remoteagent] [warning] Resolved variables received without matching request 66
+[2022-04-11 23:49:34.871] [remoteagent] [warning] Resolved variables received without matching request 67
+[2022-04-11 23:49:34.919] [remoteagent] [warning] Resolved variables received without matching request 68
+[2022-04-11 23:49:34.958] [remoteagent] [warning] Resolved variables received without matching request 69
+[2022-04-11 23:49:34.968] [remoteagent] [warning] Resolved variables received without matching request 70
+[2022-04-11 23:49:36.749] [remoteagent] [warning] Resolved variables received without matching request 71
+[2022-04-11 23:49:36.793] [remoteagent] [warning] Resolved variables received without matching request 72
+[2022-04-11 23:49:36.837] [remoteagent] [warning] Resolved variables received without matching request 73
+[2022-04-11 23:49:36.880] [remoteagent] [warning] Resolved variables received without matching request 74
+[2022-04-11 23:49:36.923] [remoteagent] [warning] Resolved variables received without matching request 75
+[2022-04-11 23:49:54.443] [remoteagent] [warning] Resolved variables received without matching request 76
+[2022-04-11 23:49:54.487] [remoteagent] [warning] Resolved variables received without matching request 77
+[2022-04-11 23:49:54.533] [remoteagent] [warning] Resolved variables received without matching request 78
+[2022-04-11 23:49:54.575] [remoteagent] [warning] Resolved variables received without matching request 79
+[2022-04-11 23:49:54.621] [remoteagent] [warning] Resolved variables received without matching request 80
+[2022-04-11 23:50:25.435] [remoteagent] [warning] Resolved variables received without matching request 81
+[2022-04-11 23:50:25.482] [remoteagent] [warning] Resolved variables received without matching request 82
+[2022-04-11 23:50:25.529] [remoteagent] [warning] Resolved variables received without matching request 83
+[2022-04-11 23:50:25.574] [remoteagent] [warning] Resolved variables received without matching request 84
+[2022-04-11 23:50:25.618] [remoteagent] [warning] Resolved variables received without matching request 85
+[2022-04-12 00:16:24.675] [remoteagent] [info] [127.0.0.1][8fd22af4][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+[2022-04-12 00:16:32.499] [remoteagent] [info] [127.0.0.1][4f7aca80][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+[2022-04-12 00:17:59.226] [remoteagent] [info] [127.0.0.1][8fd22af4][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[2022-04-12 00:17:59.226] [remoteagent] [info] [127.0.0.1][4f7aca80][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[2022-04-12 00:17:59.226] [remoteagent] [info] [127.0.0.1][4f7aca80][ManagementConnection] The client has reconnected.
+[2022-04-12 00:17:59.267] [remoteagent] [info] [127.0.0.1][ec354ba8][ExtensionHostConnection] The client has reconnected.
+[2022-04-12 00:17:59.632] [remoteagent] [info] [127.0.0.1][6f5d1cec][ManagementConnection] New connection established.
+[2022-04-12 00:17:59.923] [remoteagent] [info] [127.0.0.1][d01c69df][ExtensionHostConnection] New connection established.
+[2022-04-12 00:17:59.947] [remoteagent] [info] [127.0.0.1][d01c69df][ExtensionHostConnection] <15557> Launched Extension Host Process.
+[2022-04-12 00:18:00.220] [remoteagent] [warning] Resolved variables received without matching request 126
+[2022-04-12 00:18:00.221] [remoteagent] [warning] Resolved variables received without matching request 127
+[2022-04-12 00:18:00.577] [remoteagent] [warning] Resolved variables received without matching request 128
+[2022-04-12 00:18:00.577] [remoteagent] [warning] Resolved variables received without matching request 129
+[2022-04-12 00:18:01.314] [remoteagent] [warning] Resolved variables received without matching request 130
+[2022-04-12 00:18:01.314] [remoteagent] [warning] Resolved variables received without matching request 131
+[2022-04-12 00:18:01.555] [remoteagent] [warning] Resolved variables received without matching request 132
+[2022-04-12 00:18:01.556] [remoteagent] [warning] Resolved variables received without matching request 133
+[2022-04-12 00:18:01.632] [remoteagent] [warning] Resolved variables received without matching request 134
+[2022-04-12 00:18:01.632] [remoteagent] [warning] Resolved variables received without matching request 135
+[2022-04-12 00:18:01.787] [remoteagent] [warning] Resolved variables received without matching request 136
+[2022-04-12 00:18:01.803] [remoteagent] [warning] Resolved variables received without matching request 137
+[2022-04-12 00:18:01.822] [remoteagent] [warning] Resolved variables received without matching request 138
+[2022-04-12 00:18:02.023] [remoteagent] [warning] Resolved variables received without matching request 139
+[2022-04-12 00:18:02.026] [remoteagent] [warning] Resolved variables received without matching request 140
+[2022-04-12 00:18:03.627] [remoteagent] [warning] Resolved variables received without matching request 141
+[2022-04-12 00:18:03.688] [remoteagent] [warning] Resolved variables received without matching request 142
+[2022-04-12 00:18:03.756] [remoteagent] [warning] Resolved variables received without matching request 143
+[2022-04-12 00:18:03.804] [remoteagent] [warning] Resolved variables received without matching request 144
+[2022-04-12 00:18:03.855] [remoteagent] [warning] Resolved variables received without matching request 145
+[2022-04-12 00:18:04.742] [remoteagent] [error] [File Watcher (chokidar)] Inotify limit reached (ENOSPC)
+[2022-04-12 00:18:05.605] [remoteagent] [warning] Resolved variables received without matching request 146
+[2022-04-12 00:18:05.649] [remoteagent] [warning] Resolved variables received without matching request 147
+[2022-04-12 00:18:05.694] [remoteagent] [warning] Resolved variables received without matching request 148
+[2022-04-12 00:18:05.739] [remoteagent] [warning] Resolved variables received without matching request 149
+[2022-04-12 00:18:05.785] [remoteagent] [warning] Resolved variables received without matching request 150
+[2022-04-12 00:18:18.361] [remoteagent] [warning] Resolved variables received without matching request 151
+[2022-04-12 00:18:18.374] [remoteagent] [warning] Resolved variables received without matching request 152
+[2022-04-12 00:18:18.378] [remoteagent] [warning] Resolved variables received without matching request 153
+[2022-04-12 00:18:18.403] [remoteagent] [warning] Resolved variables received without matching request 154
+[2022-04-12 00:18:18.436] [remoteagent] [warning] Resolved variables received without matching request 155
+[2022-04-12 00:18:19.878] [remoteagent] [warning] Resolved variables received without matching request 156
+[2022-04-12 00:18:19.923] [remoteagent] [warning] Resolved variables received without matching request 157
+[2022-04-12 00:18:19.973] [remoteagent] [warning] Resolved variables received without matching request 158
+[2022-04-12 00:18:20.018] [remoteagent] [warning] Resolved variables received without matching request 159
+[2022-04-12 00:18:20.063] [remoteagent] [warning] Resolved variables received without matching request 160
+[2022-04-12 00:18:33.021] [remoteagent] [warning] Resolved variables received without matching request 161
+[2022-04-12 00:18:33.066] [remoteagent] [warning] Resolved variables received without matching request 162
+[2022-04-12 00:18:33.112] [remoteagent] [warning] Resolved variables received without matching request 163
+[2022-04-12 00:18:33.150] [remoteagent] [warning] Resolved variables received without matching request 164
+[2022-04-12 00:18:33.160] [remoteagent] [warning] Resolved variables received without matching request 165
+[2022-04-12 00:19:04.078] [remoteagent] [warning] Resolved variables received without matching request 166
+[2022-04-12 00:19:04.125] [remoteagent] [warning] Resolved variables received without matching request 167
+[2022-04-12 00:19:04.170] [remoteagent] [warning] Resolved variables received without matching request 168
+[2022-04-12 00:19:04.215] [remoteagent] [warning] Resolved variables received without matching request 169
+[2022-04-12 00:19:04.266] [remoteagent] [warning] Resolved variables received without matching request 170
+[2022-04-12 00:22:59.229] [remoteagent] [info] [127.0.0.1][8fd22af4][ManagementConnection] The reconnection short grace time of 5m has expired, so the connection will be disposed.
+[2022-04-12 00:23:00.260] [remoteagent] [info] [127.0.0.1][5230c372][ExtensionHostConnection] <1782> Extension Host Process exited with code: 0, signal: null.
+[2022-04-12 00:27:57.730] [remoteagent] [info] [127.0.0.1][4f7aca80][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+[2022-04-12 00:27:57.730] [remoteagent] [info] [127.0.0.1][6f5d1cec][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+[2022-04-12 00:28:29.886] [remoteagent] [info] [127.0.0.1][4f7aca80][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[2022-04-12 00:28:29.886] [remoteagent] [info] [127.0.0.1][6f5d1cec][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[2022-04-12 00:28:29.887] [remoteagent] [info] [127.0.0.1][6f5d1cec][ManagementConnection] The client has reconnected.
+[2022-04-12 00:28:29.903] [remoteagent] [info] [127.0.0.1][d01c69df][ExtensionHostConnection] The client has reconnected.
+[2022-04-12 00:33:29.886] [remoteagent] [info] [127.0.0.1][4f7aca80][ManagementConnection] The reconnection short grace time of 5m has expired, so the connection will be disposed.
+[2022-04-12 00:33:30.904] [remoteagent] [info] [127.0.0.1][ec354ba8][ExtensionHostConnection] <4765> Extension Host Process exited with code: 0, signal: null.
+[2022-04-12 01:03:03.769] [remoteagent] [info] [127.0.0.1][6f5d1cec][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+[2022-04-12 04:02:56.201] [remoteagent] [info] [127.0.0.1][d01c69df][ExtensionHostConnection] <15557> Extension Host Process exited with code: 0, signal: null.
+[2022-04-12 04:02:56.201] [remoteagent] [info] Last EH closed, waiting before shutting down
+[2022-04-12 04:03:03.772] [remoteagent] [info] [127.0.0.1][6f5d1cec][ManagementConnection] The reconnection grace time of 3h has expired, so the connection will be disposed.
+[2022-04-12 04:07:56.205] [remoteagent] [info] Last EH closed, shutting down

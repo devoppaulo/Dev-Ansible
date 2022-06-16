@@ -1,0 +1,32 @@
+---
+  - name: httpd Installation
+    hosts: 192.168.1.51 # from new_invent
+    become: yes
+    tasks:  
+      - name: Add epel-release
+        yum:
+          name: epel-release
+          state: present
+
+      - name: Install httpd
+        yum:
+          name: httpd
+          state: present
+
+      - name: Add index.html file
+        template: 
+          src: /home/ansible/index1.html
+          dest: /var/www/html/index.html
+
+      - name: Add firewall rule
+        firewalld:
+          state: enabled
+          service: http
+          permanent: yes
+          immediate: yes
+          
+      - name: Start httpd
+        service:
+          name: httpd
+          state: started 
+          enabled: yes   

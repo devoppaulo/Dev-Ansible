@@ -1,0 +1,7 @@
+---
+- name: Add config file to a server
+  become: yes
+  hosts: nagios
+  roles: 
+    - roles/paulo.nagios-client
+

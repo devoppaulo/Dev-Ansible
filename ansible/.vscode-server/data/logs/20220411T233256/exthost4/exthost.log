@@ -1,0 +1,23 @@
+[2022-04-12 00:18:02.227] [exthost] [info] extension host started
+[2022-04-12 00:18:02.234] [exthost] [error] Error: EEXIST: file already exists, open '/home/ansible/.vscode-server/data/User/workspaceStorage/3bdfaa26792b7c1fa6dc106d43eff378/vscode.lock'
+[2022-04-12 00:18:02.255] [exthost] [info] Lock '/home/ansible/.vscode-server/data/User/workspaceStorage/3bdfaa26792b7c1fa6dc106d43eff378/vscode.lock': Could not acquire lock, checking if the file is stale.
+[2022-04-12 00:18:02.261] [exthost] [info] Lock '/home/ansible/.vscode-server/data/User/workspaceStorage/3bdfaa26792b7c1fa6dc106d43eff378/vscode.lock': The lock does not look stale, elapsed: 405 ms, giving up.
+[2022-04-12 00:18:02.307] [exthost] [info] Lock '/home/ansible/.vscode-server/data/User/workspaceStorage/3bdfaa26792b7c1fa6dc106d43eff378-1/vscode.lock': Lock acquired.
+[2022-04-12 00:18:02.376] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"extensionId":{"value":"vscode.debug-auto-launch","_lower":"vscode.debug-auto-launch"},"activationEvent":"*"}
+[2022-04-12 00:18:02.394] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/ansible/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/extensions/debug-auto-launch/dist/extension
+[2022-04-12 00:18:02.403] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2022-04-12 00:18:02.403] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/ansible/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/extensions/git/dist/main
+[2022-04-12 00:18:02.779] [exthost] [info] ExtensionService#_doActivateExtension vscode.github {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2022-04-12 00:18:02.779] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/ansible/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/extensions/github/dist/extension.js
+[2022-04-12 00:18:02.891] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":false,"extensionId":{"value":"vscode.emmet","_lower":"vscode.emmet"},"activationEvent":"onStartupFinished"}
+[2022-04-12 00:18:02.892] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/ansible/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/extensions/emmet/dist/node/emmetNodeMain
+[2022-04-12 00:18:02.937] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":false,"extensionId":{"value":"vscode.merge-conflict","_lower":"vscode.merge-conflict"},"activationEvent":"onStartupFinished"}
+[2022-04-12 00:18:02.937] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/ansible/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/extensions/merge-conflict/dist/mergeConflictMain
+[2022-04-12 00:18:02.943] [exthost] [info] ExtensionService#_doActivateExtension vscode.testing-editor-contributions {"startup":false,"extensionId":{"value":"vscode.testing-editor-contributions","_lower":"vscode.testing-editor-contributions"},"activationEvent":"onStartupFinished"}
+[2022-04-12 00:18:02.943] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/ansible/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/extensions/testing-editor-contributions/dist/extension.js
+[2022-04-12 00:18:02.962] [exthost] [info] eager extensions activated
+[2022-04-12 00:18:03.162] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.js-debug {"startup":false,"extensionId":{"value":"ms-vscode.js-debug","_lower":"ms-vscode.js-debug"},"activationEvent":"onCommand:extension.js-debug.clearAutoAttachVariables"}
+[2022-04-12 00:18:03.162] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/ansible/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/extensions/ms-vscode.js-debug/src/extension.js
+[2022-04-12 04:02:55.188] [exthost] [info] extension host terminating: renderer disconnected for too long (1)
+[2022-04-12 04:02:55.188] [exthost] [info] Lock '/home/ansible/.vscode-server/data/User/workspaceStorage/3bdfaa26792b7c1fa6dc106d43eff378-1/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+[2022-04-12 04:02:56.194] [exthost] [info] exiting with code 0

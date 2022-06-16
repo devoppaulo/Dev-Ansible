@@ -1,0 +1,36 @@
+---
+  - name: Unistalling  Apache/nginx webserver
+    hosts: 192.168.1.51
+    vars:
+      pckg_name: httpd
+      doc_root: "/var/www/html"
+    become: yes
+    tasks:
+      - name: Remove index.html file
+        file:
+          path: "{{ doc_root }}/index.html"
+          state: absent      
+
+      - name: Remove firewall rule
+        firewalld:
+          state: disabled
+          service: http
+          permanent: yes
+          immediate: yes
+
+      - name: Stop and disable a service
+        service:
+          name: "{{ pckg_name }}"
+          state: stopped
+          enabled: no
+
+      - name: Uninstall a package
+        yum: 
+          name: "{{ pckg_name }}"
+          state: absent
+
+      - name: Uninstall epel-release repo
+        yum:
+          name: epel-release
+          state: absent
+  #      when: pckg_name  == "nginx"

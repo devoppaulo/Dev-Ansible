@@ -1,0 +1,33 @@
+- name: "Setting up chrony client"
+  hosts: ntpclient
+  become: yes
+  tasks:
+    - name: Update chrony package
+      yum:
+        name: chrony
+        state: latest 
+
+    - name: Comment out server lines
+      lineinfile: 
+          path: "/etc/chrony.conf"
+          regexp: '^server'
+          state: absent
+
+    - name: Add NTP1 server IP
+      lineinfile: 
+          path: "/etc/chrony.conf"
+          line: 'server 192.168.1.51 iburst'
+
+    - name: Add NTP2 server IP
+      lineinfile: 
+          path: "/etc/chrony.conf"
+          line: 'server 192.168.1.53 iburst'
+                
+          
+      
+    - name: Restart the service 
+      service:
+        name: chronyd
+        state: restarted  
+
+             

@@ -1,0 +1,27 @@
+---
+  - name: Installing Apache webserver
+    hosts: 192.168.1.51
+    become: yes
+    tasks: 
+      - name: Installing a package
+        yum: 
+          name: httpd
+          state: latest
+
+      - name: Start amd enable a service
+        service:
+          name: httpd
+          state: started
+          enabled: yes
+
+      - name: Add firewall rule
+        firewalld:
+          state: enabled
+          service: http
+          permanent: yes
+          immediate: yes
+
+      - name: Add index.html file
+        copy:
+          dest: /var/www/html/index.html
+          content: "This is the 1st webserver with with ansible using a playbook"  

@@ -1,0 +1,54 @@
+---
+  - name: Remove NTP configuration on a client
+    hosts: ntpclient
+    become: yes
+    vars_files:
+      - /home/ansible/variables.yml  # to be used when file variable.yml exists  inside the playbook
+
+
+#    vars:
+#      server_list: "{{ [0, 1, 2, 3] }}" 1 example
+#      server_list: 2 example 
+#        - 0
+#        - 1
+#        - 2
+#        - 3
+    tasks: 
+      - name: Remove single time source line
+        lineinfile: 
+          path: "/etc/chrony.conf"
+          regexp: '^server'
+          state: absent
+
+      - name: Add 4 time sources
+        lineinfile: 
+          path: "/etc/chrony.conf"
+          line: 'server {{ item }}.centos.pool.ntp.org iburst'
+        loop: "{{ server_list }}"
+          
+                
+      - name: Restart chronyd service
+        service:
+          name: chronyd
+          state: restarted  
+
+
+# 1st one liner loop usage.
+
+#      - name: Add 4 time sources
+#        lineinfile: 
+#          path: "/etc/chrony.conf"
+#          line: 'server {{ item }}.centos.pool.ntp.org iburst'
+#        loop: "{{ [0, 1, 2, 3] }}"
+
+# 2nd Multiple lines loop usage
+
+#      - name: Add 4 time sources
+#        lineinfile: 
+#          path: "/etc/chrony.conf"
+#          line: 'server {{ item }}.centos.pool.ntp.org iburst'
+#        loop:
+#          - 0
+#          - 1
+#          - 2
+#          - 3

@@ -1,0 +1,4 @@
+server_list: "{{ [0, 1, 2, 3] }}"
+
+# to run this playbook
+#  ansible-playbook -i ntp_inv --extra-vars variable.yml playbooks/uninstall-chrony-server-worker.yml // right file

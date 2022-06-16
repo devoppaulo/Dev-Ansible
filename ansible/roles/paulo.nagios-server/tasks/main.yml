@@ -1,0 +1,157 @@
+---
+# tasks file for roles/paulo.nagios-server
+
+#- name: Populate service facts
+#  ansible.builtin.service_facts:
+
+- name: Install epel-release
+  yum: 
+    name: epel-release
+    state: latest
+
+
+- name: Installing packages
+  yum:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ package_list }}"  
+
+- name: Copy check_nrpe plugin to a different directory
+  copy:
+    src: /usr/lib64/nagios/plugins/check_nrpe
+    dest: /usr/local/nagios/libexec/check_nrpe 
+    remote_src: yes  
+
+
+- name: Start and enable httpd
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+
+
+- name: Download the archive
+  get_url:
+    url: "https://assets.nagios.com/downloads/nagioscore/releases/nagios-{{ nagios_version }}.tar.gz"
+    dest: /tmp
+  #when: ansible_facts.services["nagios.service"] is not define  
+
+  
+- name: Untar the archive
+  unarchive:
+    src: "/tmp/nagios-{{ nagios_version }}.tar.gz"
+    dest: /tmp
+    remote_src: yes
+  #when: ansible_facts.services["nagios.service"] is not define    
+
+  
+- name: Compile Nagios 
+  shell: 
+    chdir: "/tmp/nagios-{{ nagios_version }}"
+    cmd: "{{ item }}"
+  loop: "{{ commands_list }}" 
+ # when: ansible_facts.services["nagios.service"] is not define    
+
+
+- name: Download archive with plugins
+  get_url:
+    url: "http://nagios-plugins.org/download/nagios-plugins-{{ plugins_version }}.tar.gz"
+    dest: /tmp
+  #when: ansible_facts.services["nagios.service"] is not define    
+
+
+- name: Untar plugins archive
+  unarchive:
+    src: "/tmp/nagios-plugins-{{ plugins_version }}.tar.gz"
+    dest: /tmp
+    remote_src: yes
+  #when: ansible_facts.services["nagios.service"] is not define    
+  
+
+- name: Compile plugins
+  shell: 
+    chdir: "/tmp/nagios-plugins-{{ plugins_version }}"
+    cmd: "{{ item }}"
+  loop: "{{ plugins_commands_list }}" 
+  #when: ansible_facts.services["nagios.service"] is not define    
+ 
+
+- name: Uncomment cfg_dir line in config file
+  lineinfile:
+    path: /usr/local/nagios/etc/nagios.cfg
+    regexp: 'cfg_dir=/usr/local/nagios/etc/servers'
+    line: cfg_dir=/usr/local/nagios/etc/servers 
+ # when: ansible_facts.services["nagios.service"] is not define    
+
+  
+- name: Create an empty directory
+  file:
+    path: "/usr/local/nagios/etc/servers"
+    state: directory
+ # when: ansible_facts.services["nagios.service"] is not define    
+
+ 
+- name: Edit email address in config file
+  lineinfile:
+    path: /usr/local/nagios/etc/objects/contacts.cfg
+    regexp: 'CHANGE THIS TO YOUR EMAIL ADDRESS'
+    line: "email {{ admin_email }}"
+ # when: ansible_facts.services["nagios.service"] is not define    
+
+  
+- name: Add password for nagiosadmin user
+  community.general.htpasswd:
+    name: nagiosadmin
+    path: /usr/local/nagios/etc/htpasswd.users
+    state: present
+    password: "{{ admin_password }}"
+ # when: ansible_facts.services["nagios.service"] is not define    
+
+
+- name: Restart httpd service
+  service:
+    name: httpd
+    state: restarted 
+
+
+- name: Start and enable nagios service
+  service:
+    name: nagios
+    state: started
+    enabled: yes
+ # when: ansible_facts.services["nagios.service"] is not define    
+
+
+- name: Add firewall rules
+  firewalld:
+    state: enabled
+    service: http
+    immediate: yes
+    permanent: yes
+ # when: ansible_facts.servicess["nagios.service"] is not define    
+
+- name: Add nrpe check to a commands.cfg file
+  blockinfile: 
+    path: /usr/local/nagios/etc/objects/commands.cfg
+    block: |
+      define command {
+      command_name        check_nrpe
+      command_line        $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+  
+      }
+
+  
+- name: Add a config file for a target server
+  template: 
+    dest: "/usr/local/nagios/etc/servers/server_{{ item.server_name }}.cfg"
+    src: servers.cfg.j2
+  loop: "{{ target_server_list }}" 
+  
+
+
+  
+- name: Restart nagios service
+  service:
+    name: nagios
+    state: restarted  
+ 

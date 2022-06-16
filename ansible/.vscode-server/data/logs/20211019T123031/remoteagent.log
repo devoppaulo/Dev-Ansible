@@ -1,0 +1,46 @@
+[2021-10-19 12:30:31.519] [remoteagent] [info] 
+
+*
+* Visual Studio Code Server
+*
+* Reminder: You may only use this software with Visual Studio family products,
+* as described in the license https://aka.ms/vscode-remote/license
+*
+
+
+[2021-10-19 12:30:31.519] [remoteagent] [info] Extension host agent started.
+[2021-10-19 12:30:31.606] [remoteagent] [info] [127.0.0.1][950abc14][ExtensionHostConnection] New connection established.
+[2021-10-19 12:30:31.635] [remoteagent] [info] [127.0.0.1][3961ccf7][ManagementConnection] New connection established.
+[2021-10-19 12:30:31.826] [remoteagent] [info] [127.0.0.1][950abc14][ExtensionHostConnection] <3321> Launched Extension Host Process.
+[2021-10-19 12:30:42.050] [remoteagent] [info] [127.0.0.1][3961ccf7][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[2021-10-19 12:30:43.068] [remoteagent] [info] [127.0.0.1][950abc14][ExtensionHostConnection] <3321> Extension Host Process exited with code: 0, signal: null.
+[2021-10-19 12:30:43.070] [remoteagent] [info] Last EH closed, waiting before shutting down
+[2021-10-19 12:30:43.567] [remoteagent] [info] [127.0.0.1][3a7d4103][ManagementConnection] New connection established.
+[2021-10-19 12:30:43.568] [remoteagent] [info] [127.0.0.1][35ed8c10][ExtensionHostConnection] New connection established.
+[2021-10-19 12:30:43.573] [remoteagent] [info] [127.0.0.1][35ed8c10][ExtensionHostConnection] <3378> Launched Extension Host Process.
+[2021-10-19 12:35:43.069] [remoteagent] [info] New EH opened, aborting shutdown
+[2021-10-19 21:56:57.799] [remoteagent] [info] [127.0.0.1][3a7d4103][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+[2021-10-20 00:46:48.504] [remoteagent] [info] [127.0.0.1][3a7d4103][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[2021-10-20 00:46:48.505] [remoteagent] [info] [127.0.0.1][0d2c712d][ManagementConnection] New connection established.
+[2021-10-20 00:46:48.513] [remoteagent] [info] [127.0.0.1][ad297e7e][ExtensionHostConnection] New connection established.
+[2021-10-20 00:46:48.530] [remoteagent] [info] [127.0.0.1][ad297e7e][ExtensionHostConnection] <5390> Launched Extension Host Process.
+[2021-10-20 00:51:48.507] [remoteagent] [info] [127.0.0.1][3a7d4103][ManagementConnection] The reconnection short grace time of 5m has expired, so the connection will be disposed.
+[2021-10-20 00:51:49.566] [remoteagent] [info] [127.0.0.1][35ed8c10][ExtensionHostConnection] <3378> Extension Host Process exited with code: 0, signal: null.
+[2021-10-20 12:43:35.400] [remoteagent] [info] [127.0.0.1][0d2c712d][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+[2021-10-20 15:25:33.697] [remoteagent] [info] [127.0.0.1][0d2c712d][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[2021-10-20 15:25:33.697] [remoteagent] [info] [127.0.0.1][7d379921][ManagementConnection] New connection established.
+[2021-10-20 15:25:33.715] [remoteagent] [info] [127.0.0.1][43e28455][ExtensionHostConnection] New connection established.
+[2021-10-20 15:25:33.739] [remoteagent] [info] [127.0.0.1][43e28455][ExtensionHostConnection] <17535> Launched Extension Host Process.
+[2021-10-20 15:30:33.699] [remoteagent] [info] [127.0.0.1][0d2c712d][ManagementConnection] The reconnection short grace time of 5m has expired, so the connection will be disposed.
+[2021-10-20 15:30:34.727] [remoteagent] [info] [127.0.0.1][ad297e7e][ExtensionHostConnection] <5390> Extension Host Process exited with code: 0, signal: null.
+[2021-10-21 00:06:28.406] [remoteagent] [warning] No ptyHost heartbeat after 6 seconds
+[2021-10-21 00:06:31.582] [remoteagent] [info] [127.0.0.1][7d379921][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+[2021-10-21 00:07:18.440] [remoteagent] [info] [127.0.0.1][7d379921][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[2021-10-21 00:07:18.443] [remoteagent] [info] [127.0.0.1][7d379921][ManagementConnection] The client has reconnected.
+[2021-10-21 00:07:18.554] [remoteagent] [info] [127.0.0.1][43e28455][ExtensionHostConnection] The client has reconnected.
+[2021-10-21 01:22:00.996] [remoteagent] [info] [127.0.0.1][7d379921][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+[2021-10-21 01:22:25.428] [remoteagent] [info] [127.0.0.1][7d379921][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[2021-10-21 01:22:25.429] [remoteagent] [info] [127.0.0.1][7d379921][ManagementConnection] The client has reconnected.
+[2021-10-21 01:22:25.432] [remoteagent] [info] [127.0.0.1][43e28455][ExtensionHostConnection] The client has reconnected.
+[2021-10-21 03:55:52.204] [remoteagent] [warning] No ptyHost heartbeat after 6 seconds
+[2021-10-21 03:56:15.655] [remoteagent] [info] [127.0.0.1][7d379921][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...

@@ -1,0 +1,30 @@
+---
+  - name: HTTPD Installation
+    hosts: 192.168.1.53 # from new_invent
+    become: yes
+    tasks:  
+      - name: Add epel-release
+        yum:
+          name: epel-release
+          state: present
+
+      - name: Install HTTPD
+        yum:
+          name: httpd
+          state: present
+
+      - name: Add index.html file
+        template: 
+          src: /home/ansible/index.html
+          dest: /var/www/html/index.html
+
+      - name: allow all access to tcp port 80
+        firewalld:
+          port: 80/tcp
+          zone: public
+          state: enabled
+          
+      - name: Start http
+        service:
+          name: httpd
+          state: started    

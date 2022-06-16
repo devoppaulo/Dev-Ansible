@@ -1,0 +1,42 @@
+---
+# tasks file for roles/paulo.nagios-client
+- name: Install epel-release
+  yum:
+    name: epel-release
+    state: latest
+
+
+- name: Install Nrpe and plugins
+  yum: 
+    name: "{{ item }}"
+    state: latest
+  loop: ["nrpe", "nagios-plugins-all"]
+
+- name: Add nagios server to the list of allowes hosts
+  lineinfile:
+    path: /etc/nagios/nrpe.cfg
+    regexp: 'allowed_hosts'
+    line: "allowed_hosts=127.0.0.1,{{ nagios_server_ip }}"
+
+
+- name: Add additional check commands
+  lineinfile:
+    path: /etc/nagios/nrpe.cfg
+    line: "{{ item }}"
+    state: present
+  loop: "{{ check_commands }}"  
+
+
+- name: Start and enable Nrpe
+  service: 
+    name: nrpe
+    state: started
+    enabled: yes
+
+- name: Add firewall rules
+  firewalld:
+    state: enabled
+    port: 5666/tcp
+    permanent: yes
+    immediate: yes
+

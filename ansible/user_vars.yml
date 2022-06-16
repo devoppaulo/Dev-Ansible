@@ -1,0 +1,9 @@
+create_users: 
+  - ziyo
+  - kyle
+  - max
+  - bob
+  - steve
+
+user_password: "$6$w/amV2vHw5j3/.C/$MRptqAzBNbUVuHcb2a/s6sb.URyUIJ67gb.Tzh2jXf5B8T.PxrIgX5VC57.ZMQq402G6NW5TXwdCgGi1M2Jwt0"
+user_shell: "/usr/bin/sh"  

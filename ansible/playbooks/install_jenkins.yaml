@@ -1,0 +1,9 @@
+- hosts: 192.168.1.51
+  become: true
+  
+  vars:
+    jenkins_hostname: jenkins.example.com
+    
+
+  roles:
+    - role: "/home/ansible/roles/geerlingguy.jenkins"
