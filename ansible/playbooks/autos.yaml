@@ -1,0 +1,44 @@
+---
+- name: "Autofs server installation"
+  hosts: nfsworker
+  become: yes
+  tasks:
+    - name: Install autofs repo
+      yum:
+        name: autofs
+        state: present 
+
+    - name: Add Add a Master Map
+      become: yes
+      become_user: root
+      lineinfile:
+        path: "/etc/auto.master"
+        line: "/-  /etc/auto.client)"
+        insertafter: /misc
+        state: present 
+
+#    - name: create a file for auto.client
+#      become: yes 
+#      become_user: root         
+#      file:
+#        path: "/etc/auto.client"
+#        state: touch
+
+    - name: Creating a file with content
+      copy:
+        dest: "/etc/auto.client"
+        content: "/clientshare  -rw,sync       10.231.187.129:/share"        
+
+#    - name: Edit the mapping file
+#      become: yes
+#      become_user: root
+#      lineinfile:
+#        path: "/etc/auto.client"
+#        line: "/clientshare  -rw,sync       10.231.187.129:/share"        
+#        state: present                
+
+    - name: Start and enable autofs
+      service:
+        state: started
+        name: autofs 
+        enabled: yes
