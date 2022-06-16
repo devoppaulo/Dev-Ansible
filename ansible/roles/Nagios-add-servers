@@ -1,0 +1,12 @@
+---
+# tasks file for roles/oleg.nagios_add_servers
+- name: Add a config file for a target server
+  template:
+    dest: "/usr/local/nagios/etc/servers/server_{{ item.server_name }}.cfg"
+    src: servers.cfg.j2
+  loop: "{{ target_server_list }}"
+
+- name: Restart nagios service
+  service:
+    name: nagios
+    state: restarted
