@@ -1,0 +1,90 @@
+---
+- name: "Load Balancer"
+  hosts: 192.168.33.36
+  become: yes
+  tasks:
+
+    - name: "Adding lines to a file"
+      lineinfile:
+        path: /etc/hosts
+        line: 192.168.33.33
+        create: yes
+
+    - name: "Adding lines to a file"
+      lineinfile:
+        path: /etc/hosts
+        line: 192.168.33.34
+        create: yes
+
+    - name: "Adding lines to a file"
+      lineinfile:
+        path: /etc/hosts
+        line: 192.168.33.35
+        create: yes
+
+    - name: "install haproxy"
+      yum:
+        name: haproxy
+        state: present  
+
+    - name: mv file
+      copy:
+        src: /etc/haproxy/haproxy.cfg
+        dest: /etc/haproxy/haproxy.cfg.orig
+        remote_src: yes
+
+    - name: template for configuration
+      template:
+        src: /home/ansible/templates/configuration.j2
+        dest: /etc/haproxy/haproxy.cfg
+        
+    - name: uncomment line 15
+      replace:
+        path: /etc/rsyslog.conf
+        regexp: '#$ModLoad imudps' 
+        replace: "$ModLoad imudp"    
+
+    - name: uncomment line 16
+      replace:
+        path: /etc/rsyslog.conf
+        regexp: '#$UDPServerRun 514' 
+        replace: "$UDPServerRun 514"
+
+    - name: Creating a file with content
+      copy:
+        dest: /etc/haproxy.conf
+        content: "local2.=info     /var/log/haproxy-access.log     
+                  
+                  local2.notice    /var/log/haproxy-info.log"
+
+    - firewalld:
+        port: 80/tcp
+        permanent: true
+        state: enabled
+
+    - firewalld:
+        port: 80/udp
+        permanent: true
+        state: enabled 
+
+    - firewalld:
+        port: 8080/tcp
+        permanent: true
+        state: enabled  
+   
+    - name: restart service firewalld
+      service:
+        name: firewalld
+        state: restarted 
+
+    - name: restart rsyslog
+      service:
+        name: rsyslog
+        enabled: yes
+        state: restarted
+         
+    - name: start and enable haproxy
+      service:
+        state: started
+        name: haproxy
+        enabled: yes
