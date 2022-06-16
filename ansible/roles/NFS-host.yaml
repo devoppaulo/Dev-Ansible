@@ -1,0 +1,97 @@
+---
+- name: "NFS Host server installation"
+  hosts: nfsmain
+  become: yes
+  tasks:
+    - name: Install nfs-utils repo
+      yum:
+        name: nfs-utils
+        state: present      
+
+    - name: Start and enable rpcbind
+      service:
+        state: started
+        name: rpcbind
+        enabled: yes
+
+    - name: Start and enable nfs-server
+      service:
+        state: started
+        name: nfs-server
+        enabled: yes
+
+    - name: Start and enable nfs-lock
+      service:
+        state: started
+        name: nfs-lock 
+        enabled: yes
+
+    - name: Start and enable nfs-idmap
+      service:
+        state: started
+        name: nfs-idmap
+        enabled: yes
+
+#    - name: Ensure group "nfsnobody" exists
+#      ansible.builtin.group:
+#        name: nfsnobody
+#        state: present    
+
+#    - name: Create Users Task
+#      user:
+#        name: nfsnobody
+#        state: present
+#        shell: /bin/bash
+#        groups: nfsnobody        
+
+    - name: chown to username you login and chmod as required
+      become: yes
+      become_user: root    
+      file:
+        path: "/share"
+        state: directory        
+        owner: nfsnobody
+        group: nfsnobody
+        mode: 0777
+
+    - name: Add IPs to exports
+      become: yes
+      become_user: root
+      lineinfile:
+        path: "/etc/exports"
+        line: "/share  10.231.187.90(rw,sync,no_root_squash)"
+        state: present
+
+#    - name: Restart nfs-kernel-server.service 
+#      ansible.builtin.systemd:
+#        daemon_reload: yes
+#        state: started
+#        name: nfs-kernel-server.service
+
+# exportfs -a Run on all host machine only    
+
+    - name: Add firewall rule
+      firewalld:
+        state: enabled
+        service: mountd
+        permanent: yes
+        immediate: yes
+
+    - name: Add firewall rule
+      firewalld:
+        state: enabled
+        service: rpc-bind
+        permanent: yes
+        immediate: yes
+
+    - name: Add firewall rule
+      firewalld:
+        state: enabled
+        service: nfs
+        permanent: yes
+        immediate: yes    
+
+    - name: Restart the service
+      service:
+        name: nfs-server
+        state: restarted   
