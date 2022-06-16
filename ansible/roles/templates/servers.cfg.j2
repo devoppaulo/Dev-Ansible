@@ -1,0 +1,49 @@
+define host{
+    use                    linux-server
+    host_name              {{item.server_name}}
+    alias                  {{item.server_name}}
+    address                {{item.server_ip}}
+    }
+define service{
+    use                    generic-service
+    host_name              {{item.server_name}}
+    service_description    PING
+    check_command          check_ping!100.0,20%!500.0,60%
+    }
+# check for ssh connection    
+define service {  
+    use                             generic-service   
+    host_name                       {{item.server_name}}   
+    service_description             SSH   
+    check_command                   check_ssh    
+    notifications_enabled           0
+} 
+
+# for free disk
+define service{
+    use                    generic-service
+    host_name              {{item.server_name}}
+    service_description    Root Partition
+    check_command          check_nrpe!check_disk
+    }
+# for current users
+define service{
+    use                    generic-service
+    host_name              {{item.server_name}}
+    service_description    Current Users
+    check_command          check_nrpe!check_users
+    }
+# for total processes
+define service{
+    use                    generic-service
+    host_name              {{item.server_name}}
+    service_description    Total Processes
+    check_command          check_nrpe!check_total_procs
+    }
+# for current load
+define service{
+    use                    generic-service
+    host_name              {{item.server_name}}
+    service_description    Current Load
+    check_command          check_nrpe!check_load
+    }
